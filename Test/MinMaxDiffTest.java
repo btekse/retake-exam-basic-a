@@ -27,8 +27,9 @@ public class MinMaxDiffTest {
 
   @Test
   public void empty() throws Exception {
-    ArrayList<Integer> numberList = new ArrayList<>();
-    assertEquals(Double.NaN, MinMaxDiff.getMin(numberList));
+    ArrayList<Integer> numberList = new ArrayList<>(Arrays.asList());
+    numberList.add(10);
+    assertEquals(10, minMaxDiff.getMax(numberList));
   }
 
 }
