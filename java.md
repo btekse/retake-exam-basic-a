@@ -45,4 +45,4 @@ class Foxi extends Dog {
 }
 ```
 #### Your answer:
-[add your answer here]   
+(The 0. constructor is in Object.) The 1st is in class Animal. The 2nd is in class Dog. The 3rd is in Foxi. The order is (0) 1, 2 and 3.
