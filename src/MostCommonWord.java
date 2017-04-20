@@ -2,8 +2,13 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class MostCommonWord {
+  static List<String> fileInput = new ArrayList<>();
+
   public static void main(String[] args) {
     // This should be a simple word counter which give us the most common string in a file
     // If ran from the command line without arguments it should print out the usage:
@@ -17,34 +22,37 @@ public class MostCommonWord {
     if (args.length == 0) {
       System.out.println("No source provided");
     } else if (args.length == 1) {
-      System.out.println("java MostCommonWord [source]");
-    } else if (args.length == 2) {
       readFile(args[0]);
     }
-
   }
 
   private static void readFile(String arg) {
-
-
+    Path filePath = Paths.get(arg);
     try {
-      Path filepath = Paths.get("countas/afile.txt");
-      fileInput = Files.readAllLines(filepath);
-      System.out.println("File reading OK.");
+      fileInput = Files.readAllLines(filePath);
     } catch (IOException e) {
-      System.out.println("Something wrong:" + e.getClass());
+      System.out.println("Something wrong with source file!");
+      e.printStackTrace();
     }
-    String a = fileInput.toString();
-    char ch = a.charAt(a.indexOf('a'));
-    int count = 0;
-    for (int i = 0; i < a.length(); i++) {
-      if (a.charAt(i) == 'a') {
-        count++;
-      } else if (a.charAt(i) == 'A') {
-        count++;
+    String words = fileInput.toString();
+    String[] eachWord = words.split("\\s+");
+
+    for (int i = 0; i < eachWord.length; i++) {
+      System.out.println(i + ". word" + eachWord[i]);
+    }
+  }
+
+  /*public static void wordCounter(ArrayList<String> eachWord) {
+    HashMap<String, Integer> counter = new HashMap<>();
+    for (String temp : eachWord) {
+      if (!counter.containsKey(temp)) {
+        counter.put(temp, 1);
+      } else {
+        counter.put(temp, counter.get(temp) + 1);
       }
     }
-    System.out.println("Total count of letter a: " + count);
-  }
-  }
+    System.out.println(counter);
+  }*/
 }
+
+
