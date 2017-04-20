@@ -41,18 +41,6 @@ public class MostCommonWord {
       System.out.println(i + ". word" + eachWord[i]);
     }
   }
-
-  /*public static void wordCounter(ArrayList<String> eachWord) {
-    HashMap<String, Integer> counter = new HashMap<>();
-    for (String temp : eachWord) {
-      if (!counter.containsKey(temp)) {
-        counter.put(temp, 1);
-      } else {
-        counter.put(temp, counter.get(temp) + 1);
-      }
-    }
-    System.out.println(counter);
-  }*/
 }
 
 
